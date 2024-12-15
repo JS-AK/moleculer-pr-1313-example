@@ -1,1 +1,8 @@
-moleculer-pr-1313-example
+# Stages to reproduce bug
+
+1. Start NATS server at nats://localhost:4222
+2. npm run api-gateway
+3. npm run test-1
+4. npm run test-2
+5. curl 'http://localhost:3000/api/test-1'
+6. Map() -> this.pendingReqStreams at node_modules\moleculer\src\transit.js at test-2 microservice is not been empty and have one danging and not ended stream
